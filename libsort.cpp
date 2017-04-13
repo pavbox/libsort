@@ -56,11 +56,12 @@ namespace Libsort {
   /**
    * Pretty output extra large arrays.
    *
-   * @param {int*} original - input array, will be printed;
+   * @param {int*} original - input array, will be printed
+   * @param {int}  size  - size of array
    * @return {void}
    */
-  void outputArray(int* array) {
-    for (int idx_i = 1; idx_i < 20000; idx_i++) {
+  void outputArray(int* array, int size) {
+    for (int idx_i = 1; idx_i < size; idx_i++) {
       std::cout << array[idx_i] << ' ';
       if (idx_i % 15 == 0) {
         // cout << endl;

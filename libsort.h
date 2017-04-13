@@ -2,7 +2,7 @@
 namespace Libsort {
   void generateArray(int* array, int size);
   void copyArray(int* original, int* clone, int size);
-  void outputArray(int* array);
+  void outputArray(int* array, int size);
 
   void insertion(int* array, int size);
   void insertionBisection(int* array, int size);
