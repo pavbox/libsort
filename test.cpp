@@ -1,4 +1,12 @@
 
+
+/**
+ *  test.cpp: file for testing sorts algorithms.
+ *  Just creates eight identical arrays and sort with different algorithms.
+ *
+ *  Created by pavbox.
+ */
+
 #include <iostream>
 #include <ctime>
 #include <stdlib.h>

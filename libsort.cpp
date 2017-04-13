@@ -1,8 +1,19 @@
 
 /**
-
-
-*/
+ *  libsort: library containts basic sorting algorithms, works with arrays.
+ *
+ *  Available now:
+ *  1. insertion sort
+ *  2. insertion sort with upgrade to binary search
+ *  3. selection sort
+ *  4. bubble sort
+ *  5. shaker sort (bubble sort to both sides)
+ *  6. shells sort (bubble sort with custom distantion between items)
+ *  7. quick sort by recursive functions
+ *  8. quick sort by iterable algorithm.
+ *
+ *  Author: pavbox.
+ */
 
 #include <iostream>
 #include <ctime>
@@ -10,14 +21,6 @@
 #include "libsort.h"
 
 namespace Libsort {
-
-  /**
-   * print test function
-   */
-  void print() {
-    std::cout << "/* message */" << '\n';
-  }
-
 
   /**
    * Generate array on _size_ items.
@@ -322,7 +325,10 @@ namespace Libsort {
         idx_j = idx_right;
     	  value  =  arr[(idx_left + idx_right) / 2];
 
-        // partition
+        /**
+         *  Divides the array in parts.
+         *  After, parts will be sort.
+         */
         do {
           while (arr[idx_i] < value) idx_i++;
           while (value < arr[idx_j]) idx_j--;

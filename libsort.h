@@ -1,18 +1,4 @@
 
-/**
-
- 1. !insertion sort (+bisection)
- 2. !selection sort
- 3. !bubble sort
- 4. !shaker sort
- 5. !shells sort
- 6. !quick sort (+non-recursive)
-*/
-
-/**
- *  prototypes
- */
-
 namespace Libsort {
   void print();
   void generateArray(int* array, int size);
