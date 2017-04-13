@@ -11,10 +11,12 @@ int main() {
   int stop, times, insertionTime, quickTime;
 
   // init random array
-  int* insertArray = new int[Libsort::LENGTH_ARRAY];
-  int* quickArray = new int[Libsort::LENGTH_ARRAY];
+  const int LENGTH_ARRAY = 20000;
 
-  Libsort::generateArray(insertArray);
+  int* insertArray = new int[LENGTH_ARRAY];
+  int* quickArray = new int[LENGTH_ARRAY];
+
+  Libsort::generateArray(insertArray, LENGTH_ARRAY);
   Libsort::copyArray(insertArray, quickArray);
 
   // cout << endl << endl << "SOURCE ARRAY:" << endl;
@@ -22,19 +24,28 @@ int main() {
 
   // insertSort
   // cout << endl << endl << "INSERTED ARRAY:" << endl;
-  times = clock();
-  Libsort::insertSort(insertArray);
-  insertionTime = clock() - times;
+  // times = clock();
+  // Libsort::insertSort(insertArray);
+  // insertionTime = clock() - times;
   // outputArray(insertArray);
 
 
   // cout << endl << endl << "QUICK TWICE:" << endl;
 
   // quickSort
+  // times = clock();
+  // Libsort::quickSort(quickArray, Libsort::START_ARRAY, Libsort::LENGTH_ARRAY - 1);
+  // quickTime = clock() - times;
+  // // outputArray(quickArray);
+
+
   times = clock();
-  Libsort::quickSort(quickArray, Libsort::START_ARRAY, Libsort::LENGTH_ARRAY - 1);
+  Libsort::insertion(insertArray, LENGTH_ARRAY);
+  insertionTime = clock() - times;
+
+  times = clock();
+  Libsort::quick(quickArray, 0, LENGTH_ARRAY - 1);
   quickTime = clock() - times;
-  // outputArray(quickArray);
 
 
   cout.setf(ios::fixed); // fixed output
