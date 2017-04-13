@@ -1,7 +1,4 @@
-# libsort
-Library contains basic sorts algorithms. Compiled with g++ as shared library (for mac/linux).
-
-# Алгоритмы и структуры данных: Библиотека для работы с сортировками массивов.
+# Алгоритмы и структуры данных: Библиотека для работы с сортировками массивов libsort.
 
 Функции:
 
@@ -20,3 +17,43 @@ void bubble(int* array, int size);
 void shaker(int* array, int size);
 void shells(int* array, unsigned int size);
 ```
+
+
+# API и способ вызова.
+
+Для примера решим задачу: измерить время выполнения сортировки Хоара (рекурсивной).
+
+- Зададим переменные для хранения времени и данных.
+
+```cpp
+int times, quickTime;
+const int LENGTH_ARRAY = 20000;
+int* quickArray = new int[LENGTH_ARRAY];
+```
+
+- Генерируем массив заданной длины, состоящий из случайных элементов.
+
+```cpp
+Libsort::generateArray(insertionArray, LENGTH_ARRAY);
+```
+
+- Получаем системы время до начала сортировки, сортируем и считаем разницу между текущим и начальным временем системы.
+
+```cpp
+times = clock();
+// Сортируем quickArray от нулевого элемента до последнего.
+// Интервал нужно указывать, так как функция рекурсивная.
+Libsort::quick(quickArray, 0, LENGTH_ARRAY - 1);
+quickTime = clock() - times;
+```
+
+- Настроим фиксированный удобный вывод для чисел и преобразуем тики процессора в секунды.
+
+```cpp
+cout.setf(ios::fixed); // fixed output
+cout.precision(4);     // accc
+cout << std::endl << "quick time: " << ((float) quickTime) / CLOCKS_PER_SEC << 's' << endl;
+```
+
+
+PS: [test.cpp с реализацией всех сортировок](https://github.com/pavbox/libsort/blob/master/test.cpp)
