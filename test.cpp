@@ -8,51 +8,83 @@ using namespace std;
 
 int main() {
 
-  int stop, times, insertionTime, quickTime;
+  int stop, times;
+  int insertionTime;
+  int insertionBinaryTime;
+  int selectionTime;
+  int quickTime;
+  int quickIterableTime;
+  int bubbleTime;
+  int shakerTime;
+  int shellsTime;
 
   // init random array
   const int LENGTH_ARRAY = 20000;
 
-  int* insertArray = new int[LENGTH_ARRAY];
+  int* insertionArray = new int[LENGTH_ARRAY];
+  int* insertionBinaryArray = new int[LENGTH_ARRAY];
+  int* selectionArray = new int[LENGTH_ARRAY];
   int* quickArray = new int[LENGTH_ARRAY];
+  int* quickIterableArray = new int[LENGTH_ARRAY];
+  int* bubbleArray = new int[LENGTH_ARRAY];
+  int* shakerArray = new int[LENGTH_ARRAY];
+  int* shellsArray = new int[LENGTH_ARRAY];
 
-  Libsort::generateArray(insertArray, LENGTH_ARRAY);
-  Libsort::copyArray(insertArray, quickArray);
-
-  // cout << endl << endl << "SOURCE ARRAY:" << endl;
-  // outputArray(insertArray);
-
-  // insertSort
-  // cout << endl << endl << "INSERTED ARRAY:" << endl;
-  // times = clock();
-  // Libsort::insertSort(insertArray);
-  // insertionTime = clock() - times;
-  // outputArray(insertArray);
-
-
-  // cout << endl << endl << "QUICK TWICE:" << endl;
-
-  // quickSort
-  // times = clock();
-  // Libsort::quickSort(quickArray, Libsort::START_ARRAY, Libsort::LENGTH_ARRAY - 1);
-  // quickTime = clock() - times;
-  // // outputArray(quickArray);
-
+  Libsort::generateArray(insertionArray, LENGTH_ARRAY);
+  Libsort::copyArray(insertionArray, insertionBinaryArray);
+  Libsort::copyArray(insertionArray, selectionArray);
+  Libsort::copyArray(insertionArray, quickArray);
+  Libsort::copyArray(insertionArray, quickIterableArray);
+  Libsort::copyArray(insertionArray, bubbleArray);
+  Libsort::copyArray(insertionArray, shakerArray);
+  Libsort::copyArray(insertionArray, shellsArray);
 
   times = clock();
-  Libsort::insertion(insertArray, LENGTH_ARRAY);
+  Libsort::insertion(insertionArray, LENGTH_ARRAY);
   insertionTime = clock() - times;
 
   times = clock();
+  Libsort::insertionBisection(insertionBinaryArray, LENGTH_ARRAY);
+  insertionBinaryTime = clock() - times;
+
+  times = clock();
+  Libsort::selection(selectionArray, LENGTH_ARRAY);
+  selectionTime = clock() - times;
+
+  times = clock();
+  //Libsort::quick(quickArray, LENGTH_ARRAY);
   Libsort::quick(quickArray, 0, LENGTH_ARRAY - 1);
   quickTime = clock() - times;
+
+  times = clock();
+  Libsort::quickIterable(quickIterableArray, LENGTH_ARRAY);
+  quickIterableTime = clock() - times;
+
+  times = clock();
+  Libsort::bubble(bubbleArray, LENGTH_ARRAY);
+  bubbleTime = clock() - times;
+
+  times = clock();
+  Libsort::shaker(shakerArray, LENGTH_ARRAY);
+  shakerTime = clock() - times;
+
+  times = clock();
+  // unsigned int LEN_A = LENGTH_ARRAY;
+  Libsort::shells(shellsArray, LENGTH_ARRAY);
+  shellsTime = clock() - times;
 
 
   cout.setf(ios::fixed); // fixed output
   cout.precision(4);     // accc
   cout << endl;
-  cout << endl << "insertion: " << ((float) insertionTime) / CLOCKS_PER_SEC << 's' << endl;
-  cout << endl << "quick:     " << ((float) quickTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "insertion time:         " << ((float) insertionTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "insertionBinary time:   " << ((float) insertionBinaryTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "selection time:         " << ((float) selectionTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "quick time:             " << ((float) quickTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "quickIterable time:     " << ((float) quickIterableTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "bubble time:            " << ((float) bubbleTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "shaker time:            " << ((float) shakerTime) / CLOCKS_PER_SEC << 's' << endl;
+  cout << endl << "shells time:            " << ((float) shellsTime) / CLOCKS_PER_SEC << 's' << endl;
 
   cin >> stop;
   return 0;
