@@ -93,7 +93,7 @@ namespace Libsort {
         }
       }
 
-      for (idx_j = (idx_right + 1); idx_j <= idx_i; idx_j--) {
+      for (idx_j = (idx_right + 1); idx_j > idx_i; idx_j--) {
         array[idx_j] = array[idx_j - 1];
       }
 
@@ -125,11 +125,46 @@ namespace Libsort {
     double value;
 
     for (int idx_i = 2; idx_i < size; idx_i++) {
-      for (int idx_j = size; idx_j <= idx_i; idx_j++) {
+      for (int idx_j = size; idx_j > idx_i; idx_j--) {
         std::swap(array[idx_j], array[idx_j - 1]);
       }
     }
   }
+
+
+
+
+  void shacker(int* array, int size) {
+    double value;
+    int idx_j;
+    int idx_left = 2;
+    int idx_right = size;
+    int idx_key = size;
+
+    do {
+      for (idx_j = idx_right; idx_j > idx_left; idx_j--) {
+        if (array[idx_j - 1] > array[idx_j]) {
+          std::swap(array[idx_j], array[idx_j - 1]);
+          idx_key = idx_j;
+        }
+      }
+
+      idx_left = idx_key + 1;
+
+      for (idx_j = idx_left; idx_j < idx_right; idx_j++) {
+        if (array[idx_j - 1] > array[idx_j]) {
+          std::swap(array[idx_j], array[idx_j - 1]);
+          idx_key = idx_j;
+        }
+      }
+
+      idx_right = idx_key - 1;
+
+    } while (idx_left < idx_right);
+
+  }
+
+
 
 
 
