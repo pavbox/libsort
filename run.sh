@@ -4,7 +4,7 @@
 # Welcome!
 # Please, compile and start program instruction (for mac or linux).
 # exec by terminal command:
-# sh c.sh
+# sh run.sh
 #
 
 # if you experienced user, you can use another compilation.

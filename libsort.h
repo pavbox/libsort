@@ -1,8 +1,7 @@
 
 namespace Libsort {
-  void print();
   void generateArray(int* array, int size);
-  void copyArray(int* original, int* clone);
+  void copyArray(int* original, int* clone, int size);
   void outputArray(int* array);
 
   void insertion(int* array, int size);

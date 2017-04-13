@@ -41,12 +41,13 @@ namespace Libsort {
   /**
    * Copies original array.
    *
-   * @param {int*} original - source array, will be cloned;
-   * @param {int*} clone    - clonned array;
+   * @param {int*} original - source array, will be cloned
+   * @param {int*} clone    - clonned array
+   * @param {int}  size  - size of array
    * @return {void}
    */
-  void copyArray(int* original, int* clone) {
-    for (int idx_i = 1; idx_i < 20000; idx_i++) {
+  void copyArray(int* original, int* clone, int size) {
+    for (int idx_i = 1; idx_i < size; idx_i++) {
       clone[idx_i] = original[idx_i]; // copy array
     }
   }

@@ -39,13 +39,14 @@ int main() {
   int* shellsArray = new int[LENGTH_ARRAY];
 
   Libsort::generateArray(insertionArray, LENGTH_ARRAY);
-  Libsort::copyArray(insertionArray, insertionBinaryArray);
-  Libsort::copyArray(insertionArray, selectionArray);
-  Libsort::copyArray(insertionArray, quickArray);
-  Libsort::copyArray(insertionArray, quickIterableArray);
-  Libsort::copyArray(insertionArray, bubbleArray);
-  Libsort::copyArray(insertionArray, shakerArray);
-  Libsort::copyArray(insertionArray, shellsArray);
+
+  Libsort::copyArray(insertionArray, insertionBinaryArray, LENGTH_ARRAY);
+  Libsort::copyArray(insertionArray, selectionArray,       LENGTH_ARRAY);
+  Libsort::copyArray(insertionArray, quickArray,           LENGTH_ARRAY);
+  Libsort::copyArray(insertionArray, quickIterableArray,   LENGTH_ARRAY);
+  Libsort::copyArray(insertionArray, bubbleArray,          LENGTH_ARRAY);
+  Libsort::copyArray(insertionArray, shakerArray,          LENGTH_ARRAY);
+  Libsort::copyArray(insertionArray, shellsArray,          LENGTH_ARRAY);
 
   times = clock();
   Libsort::insertion(insertionArray, LENGTH_ARRAY);
