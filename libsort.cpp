@@ -230,8 +230,12 @@ namespace Libsort {
 
 
   /**
-   * Shell's sort.
+   * Shell's sort. It's upgrade of insertion sort.
    * Work as bubble sort, but compares items on large distantion.
+   * For example:
+   * Will be sort with 4-sort, 2-sort, 1-sort (default insertion sort).
+   * Number in *-sort says how many distantion between two items.
+   *
    * With from O(n^2) to O(nlogn) time.
    *
    * @param {int*} array - source array, will be sorted;
@@ -325,7 +329,7 @@ namespace Libsort {
       do {
         idx_i = idx_left;
         idx_j = idx_right;
-    	  value  =  arr[(idx_left + idx_right) / 2];
+    	  value = arr[(idx_left + idx_right) / 2];
 
         /**
          *  Divides the array in parts.
@@ -336,17 +340,17 @@ namespace Libsort {
           while (value < arr[idx_j]) idx_j--;
 
           if (idx_i <= idx_j) {
-            buffer  =  arr[idx_i];
-            arr[idx_i]  =  arr[idx_j];
-            arr[idx_j]  =  buffer;
+            buffer = arr[idx_i];
+            arr[idx_i] = arr[idx_j];
+            arr[idx_j] = buffer;
             idx_i++; idx_j--;
           }
         } while(idx_i < idx_j);
 
         if (idx_i < idx_right) {
           sizeCount++;
-          deepDown[sizeCount] =  idx_i;
-          deepUp[sizeCount] =  idx_right;
+          deepDown[sizeCount] = idx_i;
+          deepUp[sizeCount] = idx_right;
         }
 
         idx_right = idx_j;

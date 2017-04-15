@@ -15,4 +15,6 @@ namespace Libsort {
   void shells(int* array, unsigned int size);
   // heap
   // tree
+  // merge
+  // topology and other
 }
