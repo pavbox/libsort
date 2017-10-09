@@ -27,7 +27,7 @@ int main() {
   int shellsTime;
 
   // init random array
-  const int LENGTH_ARRAY = 20000;
+  const int LENGTH_ARRAY = 2000;
 
   int* insertionArray = new int[LENGTH_ARRAY];
   int* insertionBinaryArray = new int[LENGTH_ARRAY];
@@ -95,6 +95,5 @@ int main() {
   cout << endl << "shaker time:            " << ((float) shakerTime) / CLOCKS_PER_SEC << 's' << endl;
   cout << endl << "shells time:            " << ((float) shellsTime) / CLOCKS_PER_SEC << 's' << endl;
 
-  cin >> stop;
   return 0;
 }
