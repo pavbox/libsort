@@ -4,7 +4,8 @@ sudo: required
 language: cpp
 compiler: g++
 
-os: linux
+os: osx
+osx_image: xcode9.0
 
 script:
   - g++ -c libsort.cpp -o libsort.o
