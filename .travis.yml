@@ -6,4 +6,9 @@ compiler: g++
 
 os: linux
 
-script: run.sh
+script:
+  - g++ -c libsort.cpp -o libsort.o
+  - g++ -c test.cpp -o test.o
+  - g++ -shared -fPIC -o libsort.so libsort.o
+  - g++ test.o libsort.o -o test
+  - ./test
