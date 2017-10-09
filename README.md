@@ -1,6 +1,7 @@
 # Алгоритмы и структуры данных: Библиотека для работы с сортировками массивов libsort.
 
-Status.
+### Status
+
 OSX: [![Build Status](https://travis-ci.org/pavbox/libsort.svg?branch=master)](https://travis-ci.org/pavbox/libsort)
 
 Функции:
